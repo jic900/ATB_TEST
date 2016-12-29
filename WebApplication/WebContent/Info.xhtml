@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Info</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h2>Information</h2>
+		<hr />
+		<br />
+		<font size="5" > #{login.greetMsg} </font><br/><br/>
+    	<ui:repeat value="#{login.messages}" var="msg" >
+        <li>
+          <font size="3" color="red"> #{msg}</font>
+        </li>
+      </ui:repeat>
+ 
+    <ui:repeat value="#{login.searchResults}" var="result" >
+        <li>
+        <a href="#{result.link}">#{result.title}</a><br/>
+       <font size="3" color="green"> #{result.link} </font>
+        <br/>
+        #{result.snippet}
+        </li>
+        <br/>
+    </ui:repeat>
+
+     <br/>
+     <h:commandButton id="submit" value="Back" action="#{login.userLogout()}" />
+	</h:form>
+</h:body>
+</html>
