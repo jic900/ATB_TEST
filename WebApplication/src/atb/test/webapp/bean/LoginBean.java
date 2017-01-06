@@ -48,7 +48,7 @@ public class LoginBean implements Serializable {
 	 */
 	public String getODataResult() {
 
-		final String SERVICE_URI = UserLoginUtil.ODATA_SERVICE_URL;
+		final String SERVICE_URI = UserLoginUtil.getServiceURL("ODATA_SERVICE_URL");
 		String message = "";
 		ODataClient client = ODataClientFactory.getClient();
 		client.getConfiguration().setDefaultPubFormat(
@@ -85,7 +85,7 @@ public class LoginBean implements Serializable {
 
 		List<SearchResult> results = new ArrayList<>();
 		
-		final String urlGoogelSearchAPI = UserLoginUtil.GOOGLE_CSE_API_URL
+		final String urlGoogelSearchAPI = UserLoginUtil.getServiceURL("GOOGLE_CSE_API_URL")
 				.concat("&q="+this.getUserName());
 		
 		try {
